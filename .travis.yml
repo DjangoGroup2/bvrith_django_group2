@@ -8,8 +8,7 @@ install:
 script: 
     - pytest Testing.py
     
-script:
-    -pytest names.py
+
 
 
 
