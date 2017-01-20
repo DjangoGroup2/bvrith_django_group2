@@ -1,14 +1,6 @@
-from django.test import TestCase
+def multiply(a, b):
+	return a * b;
 
-class SimpleTest(TestCase):
-    def test_basic_addition(self):
-        """
-        Tests that 1 + 1 always equals 2.
-        """
-        self.failUnlessEqual(1 + 1, 2)
-
-__test__ = {"doctest": """
-Another way to test that 1 + 1 is equal to 2.
->>> 1 + 1 == 2
-True
-"""}
+def test_numbers_3_4():
+    assert multiply(4, 5) == 20
+    assert multiply(4, 7) == 28
