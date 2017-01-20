@@ -4,6 +4,15 @@ python:
 # command to install dependencies
 install:
     - pip install -r requirements.txt
+    
+services:
+  - mysql
+  
+env: # => 4
+      -DJANGO=1.10 DB=mysql
+
+before_script: # => 6
+- mysql -e 'create database djangodb;' -u root
 # command to run tests
 script: 
     - pytest tests.py
