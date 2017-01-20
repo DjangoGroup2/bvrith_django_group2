@@ -25,7 +25,8 @@ class Education(models.Model):
     School = models.CharField(max_length=100)
 	Intermediate=models.CharField(max_length=100)
 	Degree=models.CharField(max_length=100)
-	
+class Projects(models.Model):
+	description = models.CharField(max_length=200)
 	
 	
 	
