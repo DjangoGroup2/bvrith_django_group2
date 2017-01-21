@@ -23,6 +23,8 @@ class Education(models.Model):
     School = models.CharField(max_length=100)
 	Intermediate=models.CharField(max_length=100)
 	Degree=models.CharField(max_length=100)
+	start_date = models.DateField(blank=True, null=True)
+    end_date = models.DateField(blank=True, null=True)
 class Projects(models.Model): 
     name = models.CharField(maxlength=100)
 	description = models.CharField(max_length=200)
