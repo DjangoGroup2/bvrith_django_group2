@@ -25,20 +25,29 @@ class Education(models.Model):
 	Degree=models.CharField(max_length=100)
 	startdate = models.DateField(blank=True, null=True)
     enddate = models.DateField(blank=True, null=True)
+	
 class Projects(models.Model): 
     name = models.CharField(maxlength=100)
 	description = models.CharField(max_length=200)
 	startdate = models.DateField(blank=True, null=True)
     enddate = models.DateField(blank=True, null=True)
 	link = models.URLField(blank=True, null=True)
+	
 class WorkExperience(models.Model):
     name = models.CharField(maxlength=100)
-    title = models.CharField(maxlength=100)
     company_link = models.URLField(blank=True, null=True)
     startdate = models.DateField()
     enddate = models.DateField(blank=True)
     description = models.TextField(blank=True)
-   
+  
+  
+   class Internshipmodels.Model):
+    name = models.CharField(maxlength=100)
+    company_link = models.URLField(blank=True, null=True)
+    startdate = models.DateField()
+    enddate = models.DateField(blank=True)
+    description = models.TextField(blank=True)
+  
 	
 	
 	
