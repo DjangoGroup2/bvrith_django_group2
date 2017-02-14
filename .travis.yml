@@ -20,7 +20,7 @@ before_script:
     
 
 script :
-    - py.test Tests.py
+    - py.test tests.py
 
 
 
