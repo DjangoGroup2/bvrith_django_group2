@@ -41,7 +41,7 @@ class WorkExperience(models.Model):
     description = models.TextField(blank=True)
   
   
-   class Internshipmodels.Model):
+   class Internship(models.Model):
     name = models.CharField(maxlength=100)
     company_link = models.URLField(blank=True, null=True)
     startdate = models.DateField()
