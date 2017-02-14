@@ -13,6 +13,6 @@ env:
 before_script: 
       - mysql -e 'create database dbdjango;' -u root
 script: 
-      - py.test Tests.py
+      - py.test tests.py
 
 
