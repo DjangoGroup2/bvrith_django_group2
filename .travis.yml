@@ -1,34 +1,18 @@
-language :python
+language: python
+python:
+  - "3.5"
 
-python :
-  -"3.5"
+install:
+    - pip install -r requirements.txt   
+services:
+  - mysql
   
-install :
-    - pip install -r requriments.txt
-    
-    
-services :
-    - mysql
-  
-  
-env:
-    -Django=1.10 DB =mysql
-  
-  
-before_script:
-    -mysql  -e 'create database  dbdjango' -u root
-    
+env: 
+      -DJANGO=1.10 DB=mysql
 
-script :
-    - py.test tests.py
-
-
-
-
-
-
-
-
-
+before_script: 
+      - mysql -e 'create database dbdjango;' -u root
+script: 
+      - py.test Tests.py
 
 
