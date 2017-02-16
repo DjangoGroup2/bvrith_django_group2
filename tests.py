@@ -1,6 +1,6 @@
-def multiply(a, b):
-	return a * b;
+def add(a, b):
+	return a + b;
 
 def test_numbers():
-    assert multiply(2, 3) == 6
-    assert multiply(5, 4) == 20
+    assert add(2, 3) == 5
+    assert add(5, 4) == 9
