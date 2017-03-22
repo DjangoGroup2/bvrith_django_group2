@@ -1,55 +1,31 @@
 from django.db import models
-
-class Person(models.Model):
-    full_name = models.CharField(max_length=150)
-    phone_number = models.CharField(max_length=25)
-    email = models.EmailField()
-    
-    def __unicode__(self):
-        return self.full_name
-
-class Address(models.Model):
-    street = models.CharField(max_length=150)
-    city = models.CharField(max_length=100)
-	flat_number = models.CharField(max_length=25)
-    person = models.OneToOneField(Person, null=True)
-     def __unicode__(self):
-        return self.street
-class TechnicalSkills(models.Model):
-    technology_name = models.CharField(max_length=200)
-	 description = models.TextField(blank=True)
-	
-class Education(models.Model):
-    School = models.CharField(max_length=100)
-	Intermediate=models.CharField(max_length=100)
-	Degree=models.CharField(max_length=100)
-	startdate = models.DateField(blank=True, null=True)
-    enddate = models.DateField(blank=True, null=True)
-	
-class Projects(models.Model): 
-    name = models.CharField(maxlength=100)
-	description = models.CharField(max_length=200)
-	startdate = models.DateField(blank=True, null=True)
-    enddate = models.DateField(blank=True, null=True)
-	link = models.URLField(blank=True, null=True)
-	
-class WorkExperience(models.Model):
-    name = models.CharField(maxlength=100)
-    company_link = models.URLField(blank=True, null=True)
-    startdate = models.DateField()
-    enddate = models.DateField(blank=True)
-    description = models.TextField(blank=True)
-  
-  
-   class Internship(models.Model):
-    name = models.CharField(maxlength=100)
-    company_link = models.URLField(blank=True, null=True)
-    startdate = models.DateField()
-    enddate = models.DateField(blank=True)
-    description = models.TextField(blank=True)
-  
-	
-	
+class personalInfo(models.Model):
+    rollNo = models.TextField(max_length = 20, primary_key = True)
+    first_name = models.CharField(max_length = 30)
+    last_name = models.CharField(max_length = 30)
+    address = models.TextField(max_length = 80)
+    email = models.EmailField(max_length = 80)
+    phone_no = models.IntegerField(max_length = 10)
+class academicInfo(models.Model):
+    student_Id = models.ForeignKey(personalInfo, on_delete = models.CASCADE)
+    yearOfJoining = models.IntegerField(max_length = 4)
+    aggregate = models.IntegerField(max_length = 10)
+    upperSecondaryInst = models.CharField(max_length = 10)
+    upperSecondaryBoard = models.CharField(max_length = 10)
+    upperSecondaryPercentage = models.IntegerField(max_length = 10)
+    SecondaryInst = models.CharField(max_length = 10)
+    SecondaryBoard = models.CharField(max_length = 10)
+    SecondaryPercentage = models.IntegerField(max_length = 10)
+class additionalInfo(models.Model):
+    studentId = models.ForeignKey(personalInfo, on_delete = models.CASCADE)
+    coAcademicActivities = models.CharField(max_length = 30)
+    details = models.TextField(max_length = 30)
+    coCurriculars = models.CharField(max_length = 30)
+    hobbies = models.CharField(max_length = 20)
+class Notifications(models.Model):
+    studentId = models.ForeignKey(personalInfo, on_delete = models.CASCADE)
+    date = models.TextField()
+    notification = models.CharField(max_length = 50)
 	
 		
 		
