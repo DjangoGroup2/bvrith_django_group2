@@ -7,4 +7,4 @@ class Notification(models.Model):
 class Drive(models.Model):
     company_name = models.CharField(max_length=500)
     release_date = models.DateField()
-    
+    num_stars = models.IntegerField()
