@@ -26,7 +26,7 @@ class Notifications(models.Model):
     studentId = models.ForeignKey(personalInfo, on_delete = models.CASCADE)
     date = models.TextField()
     notification = models.CharField(max_length = 50)
-	
+	hvhvjh
 		
 		
 		
