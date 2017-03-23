@@ -1,38 +1,28 @@
-from django.db import models
-from django.core.exceptions import ValidationError
-import re
 
-class Student(models.Model):
-    firstname = models.CharField(max_length=30, null=False, blank=False)
-    lastname = models.CharField(max_length=30, null=False, blank=False)
-
-    def clean(self):
-        if re.match(r'^\s+$', self.firstname):
-            raise ValidationError('Firstname should contain some characters, only spaces not allowed')
-        if re.match(r'^\s+$', self.lastname):
-            raise ValidationError('Lastname should contain some characters, only spaces not allowed')	
-	
-    def __unicode__(self):
-        return u'%s %s' % (self.firstname, self.lastname)
-
-    class Meta:
-        unique_together = (("firstname", "lastname"),)
-        ordering = ['firstname']
-
-class Subject(models.Model):
-    name = models.CharField(max_length=10, unique=True, null=False, blank=False)
-    
-    def clean(self):
-        if re.match(r'^\s+$', self.name):
-            raise ValidationError('Subject should contain some characters, only spaces not allowed')
-    
-    def __unicode__(self):
-        return u'%s' % (self.name)
-
-class StudentMarks(models.Model):
-    student = models.ForeignKey(Student)
-    subject = models.ForeignKey(Subject)
-    marks   = models.IntegerField(max_length=3, null=False, blank=False)
-
-    class Meta:
-        unique_together = (("student", "subject"),)
+class personalInfo(models.Model):
+    rollNo = models.TextField(max_length = 20, primary_key = True)
+    first_name = models.CharField(max_length = 30)
+    last_name = models.CharField(max_length = 30)
+    address = models.TextField(max_length = 80)
+    email = models.EmailField(max_length = 80)
+    phone_no = models.IntegerField(max_length = 10)
+class academicInfo(models.Model):
+    student_Id = models.ForeignKey(personalInfo, on_delete = models.CASCADE)
+    yearOfJoining = models.IntegerField(max_length = 4)
+    aggregate = models.IntegerField(max_length = 10)
+    upperSecondaryInst = models.CharField(max_length = 10)
+    upperSecondaryBoard = models.CharField(max_length = 10)
+    upperSecondaryPercentage = models.IntegerField(max_length = 10)
+    SecondaryInst = models.CharField(max_length = 10)
+    SecondaryBoard = models.CharField(max_length = 10)
+    SecondaryPercentage = models.IntegerField(max_length = 10)
+class additionalInfo(models.Model):
+    studentId = models.ForeignKey(personalInfo, on_delete = models.CASCADE)
+    coAcademicActivities = models.CharField(max_length = 30)
+    details = models.TextField(max_length = 30)
+    coCurriculars = models.CharField(max_length = 30)
+    hobbies = models.CharField(max_length = 20)
+class Notifications(models.Model):
+    studentId = models.ForeignKey(personalInfo, on_delete = models.CASCADE)
+    date = models.TextField()
+    notification = models.CharField(max_length = 50)
