@@ -1,3 +1,4 @@
+from django.db import models
 
 class personalInfo(models.Model):
     rollNo = models.TextField(max_length = 20, primary_key = True)
