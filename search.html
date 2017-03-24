@@ -1,0 +1,25 @@
+<form method="get" action="/students/searchResults/">
+
+Search:</br>
+From Percentage: <input type="text" name="start_pctg"></br>
+To Percentage: <input type="text" name="end_pctg"></br>
+Backlogs: <input type="text" name="backlogs"></br>
+<input type="Submit" name="Submit"> </br>
+
+</form>
+
+
+Students:
+
+<table>
+<tr><td><h1>Student Roll No </h1> </td> <td><h1>Student Name</h1> </td></tr> 
+
+{% if students %}
+{% for student in students %}
+<tr><td><h2>{{ student.student_roll_no }}</h2> </td> <td><h2>{{ student.student_name }}</h2> </td> </tr> 
+{% endfor %}
+</ul>
+{% else %}
+<tr> <td> No students available..</tr></tr>
+{% endif %}
+</table>
