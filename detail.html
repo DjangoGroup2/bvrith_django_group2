@@ -1,0 +1,23 @@
+
+<table>
+<tr><td><h1>Venue Name:</h1> </td> <td><h2>{{ venue.tpo_venue }}</h2> </td> </tr> 
+<tr><td><h1>Venue Date:</h1></td> <td><h2>{{ venue.tpo_date }}</h2> </td> </tr> 
+<tr><td><h1>Venue TIme:</h1></td> <td><h2>{{ venue.tpo_time }}</h2> </td> </tr> 
+<tr><td><h1>Occupancy:</h1> </td> <td><h2>{{ venue.tpo_no_of_students }}</h2> </td> </tr> 
+
+</table>
+
+Organizations:
+
+<table>
+<tr><td><h1>Org Name</h1> </td> <td><h1>Mode</h1> </td> <td><h1>Percentage</h1> </td> </tr> 
+
+{% if venue.tpo_org_set.all %}
+{% for org in venue.tpo_org_set.all %}
+<tr><td><h2>{{ org.tpo_org_name }}</h2> </td> <td><h2>{{ org.tpo_org_mode }}</h2> </td> <td><h2>{{ org.tpo_org_btech_pctg }}</h2> </td></tr> 
+{% endfor %}
+</ul>
+{% else %}
+<tr> <td> No Organisation registered for this venue.</tr></tr>
+{% endif %}
+</table>
