@@ -1,0 +1,10 @@
+{% if latest_venue_list %}
+    <ul>
+    {% for venue in latest_venue_list %}
+       <!-- <li><a href="/students/{{ venue.id }}/">{{ venue.tpo_venue }}</a></li> -->
+	<li><a href="{% url 'detail' venue.id %}">{{ venue.tpo_venue }}</a></li>
+    {% endfor %}
+    </ul>
+{% else %}
+    <p>No venues are available.</p>
+{% endif %}
